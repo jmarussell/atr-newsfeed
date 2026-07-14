@@ -1,0 +1,19 @@
+name = "atr-newsfeed-api"
+main = "worker/src/index.js"
+compatibility_date = "2026-07-14"
+
+# Future API host. Keep this disabled/unrouted until we intentionally switch
+# from Google Sheets to D1.
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "atr-newsfeed"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "worker/migrations"
+
+[vars]
+ALLOWED_ORIGIN = "https://news.ceeyesyes.com"
+
+# Set with:
+# npx wrangler secret put PUBLISH_TOKEN
